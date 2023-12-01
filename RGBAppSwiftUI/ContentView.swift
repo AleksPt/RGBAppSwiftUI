@@ -1,24 +1,28 @@
-//
-//  ContentView.swift
-//  RGBAppSwiftUI
-//
-//  Created by Алексей on 01.12.2023.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var redComponent: Double = 0.3
+    @State var greenComponent: Double = 0.9
+    @State var blueComponent: Double = 0.5
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Slider(value: $redComponent)
+            Slider(value: $greenComponent)
+            Slider(value: $blueComponent)
+            Color(
+                red: redComponent,
+                green: greenComponent,
+                blue: blueComponent
+            )
+            .clipShape(Circle())
         }
-        .padding()
+        .padding(.all, 30.0)
     }
 }
 
 #Preview {
     ContentView()
 }
+
